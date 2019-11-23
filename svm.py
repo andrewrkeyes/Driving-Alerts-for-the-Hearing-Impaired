@@ -35,19 +35,24 @@ def file_lines(f):
     return count
 
 def main():
-    sensor_one = open("sensor_one.txt")
-    sensor_two = open("sensor_two.txt")
-    sensor_three = open("sensor_three.txt")
+    window_size = 300
+
+
+    sensor_one = open("sensor_one.txt").readlines()
+    sensor_two = open("sensor_two.txt").readlines()
+    sensor_three = open("sensor_three.txt").readlines()
 
     X_train = list()
 
-    for x in range(300, file_lines(sensor_one)):
-        window = np.zeros((3,200))
-        for y in range(x, x+300):
-            window[0, y] = int(sensor_one.readline())
-            window[1, y] = int(sensor_two.readline())
-            window[2, y] = int(sensor_three.readline())
+    for x in range(window_size, file_lines(sensor_one)):
+        window = np.zeros((3,window_size))
+        for y in range(x, x+window_size):
+            window[0, y] = int(sensor_one[y])
+            window[1, y] = int(sensor_two[y])
+            window[2, y] = int(sensor_three[y])
         X_train.append(window)
+    
+
 
 
 

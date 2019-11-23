@@ -49,7 +49,6 @@ def main():
             window[2, y] = int(sensor_three.readline())
         X_train.append(window)
 
-    
 
 
 

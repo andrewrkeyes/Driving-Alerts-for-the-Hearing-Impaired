@@ -6,5 +6,4 @@ s = [0]
 
 while True:
 	read_serial=ser.readline()
-
 	print read_serial

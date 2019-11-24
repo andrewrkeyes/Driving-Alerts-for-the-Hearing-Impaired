@@ -13,6 +13,7 @@ void loop() {
   float sum = 0;
   float sum1 = 0;
   float sum2 = 0;
+
   for (int i = 0; i <4; i++){
     my_val = analogRead(A0);
     sum = sum + my_val;
@@ -21,9 +22,11 @@ void loop() {
     my_val2 = analogRead(A2);
     sum2 = sum2 + my_val2;
   }
+
   float redThreshold = 0; //22.27;
   float blueThreshold = 0; //29.27;
   float greenThreshold = 0;
+
   float final0 = sum/4;
   float final1 = sum1/4;
   float final2 = sum2/4;

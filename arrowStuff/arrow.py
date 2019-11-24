@@ -24,33 +24,61 @@ def main():
             savedValue = location
             print(location)
             undrawAll(aLine,bLine,cLine)
-            if location == '12':
-                aLine = Line(Point(window.getWidth()/2,100), Point(window.getWidth()/2,450))
+            if location == '1':
+                aLine = Line(Point(window.getWidth()/2,100+10), Point(window.getWidth()/2,450))
                 aLine.draw(window)
-                bLine = Line(Point(window.getWidth()/2,100), Point(window.getWidth()/2-20,window.getHeight()/2-80))
+                bLine = Line(Point(window.getWidth()/2+20,100), Point(window.getWidth()/2-80,window.getHeight()/2-80))
                 bLine.draw(window)
-                cLine = Line(Point(window.getWidth()/2,100), Point(window.getWidth()/2+20,window.getHeight()/2-80))
+                cLine = Line(Point(window.getWidth()/2-20,100), Point(window.getWidth()/2+80,window.getHeight()/2-80))
+                cLine.draw(window)
+            if location == '2':
+                aLine = Line(Point(window.getWidth()/4,window.getHeight()*3/4), Point(window.getWidth()*3/4,window.getHeight()/4))
+                aLine.draw(window)
+                bLine = Line(Point(window.getWidth()*3/4-150,window.getHeight()/4), Point(window.getWidth()*3/4+30,window.getHeight()/4))
+                bLine.draw(window)
+                cLine = Line(Point(window.getWidth()*3/4,window.getHeight()/4+150), Point(window.getWidth()*3/4,window.getHeight()/4-30))
                 cLine.draw(window)
             if location == '3':
-                aLine = Line(Point(100,window.getHeight()/2), Point(700,window.getHeight()/2))
+                aLine = Line(Point(100,window.getHeight()/2), Point(700-20,window.getHeight()/2))
                 aLine.draw(window)
-                bLine = Line(Point(700,window.getHeight()/2), Point(window.getWidth()/2+80,window.getHeight()/2-20))
+                bLine = Line(Point(700,window.getHeight()/2+20), Point(window.getWidth()/2+180,window.getHeight()/2-90))
                 bLine.draw(window)
-                cLine = Line(Point(700,window.getHeight()/2), Point(window.getWidth()/2+80,window.getHeight()/2+20))
+                cLine = Line(Point(700,window.getHeight()/2-20), Point(window.getWidth()/2+180,window.getHeight()/2+90))
+                cLine.draw(window)
+            if location == '4':
+                aLine = Line(Point(window.getWidth()/4,window.getHeight()/4), Point(window.getWidth()*3/4,window.getHeight()*3/4))
+                aLine.draw(window)
+                bLine = Line(Point(window.getWidth()*3/4-150,window.getHeight()*3/4), Point(window.getWidth()*3/4+30,window.getHeight()*3/4))
+                bLine.draw(window)
+                cLine = Line(Point(window.getWidth()*3/4,window.getHeight()*3/4-150), Point(window.getWidth()*3/4,window.getHeight()*3/4+30))
+                cLine.draw(window)
+            if location == '5':
+                aLine = Line(Point(window.getWidth()/2,100), Point(window.getWidth()/2,450-10))
+                aLine.draw(window)
+                bLine = Line(Point(window.getWidth()/2+20,450), Point(window.getWidth()/2-80,window.getHeight()/2+80))
+                bLine.draw(window)
+                cLine = Line(Point(window.getWidth()/2-20,450), Point(window.getWidth()/2+80,window.getHeight()/2+80))
                 cLine.draw(window)
             if location == '6':
-                aLine = Line(Point(window.getWidth()/2,100), Point(window.getWidth()/2,450))
+                aLine = Line(Point(window.getWidth()/4,window.getHeight()*3/4), Point(window.getWidth()*3/4,window.getHeight()/4))
                 aLine.draw(window)
-                bLine = Line(Point(window.getWidth()/2,450), Point(window.getWidth()/2-20,window.getHeight()/2+80))
+                bLine = Line(Point(window.getWidth()/4+150,window.getHeight()*3/4), Point(window.getWidth()/4-30,window.getHeight()*3/4))
                 bLine.draw(window)
-                cLine = Line(Point(window.getWidth()/2,450), Point(window.getWidth()/2+20,window.getHeight()/2+80))
+                cLine = Line(Point(window.getWidth()/4,window.getHeight()*3/4-150), Point(window.getWidth()/4,window.getHeight()*3/4+30))
                 cLine.draw(window)
-            if location == '9':
-                aLine = Line(Point(100,window.getHeight()/2), Point(700,window.getHeight()/2))
+            if location == '7':
+                aLine = Line(Point(100+20,window.getHeight()/2), Point(700,window.getHeight()/2))
                 aLine.draw(window)
-                bLine = Line(Point(100,window.getHeight()/2), Point(window.getWidth()/2-80,window.getHeight()/2-20))
+                bLine = Line(Point(100,window.getHeight()/2+20), Point(window.getWidth()/2-180,window.getHeight()/2-90))
                 bLine.draw(window)
-                cLine = Line(Point(100,window.getHeight()/2), Point(window.getWidth()/2-80,window.getHeight()/2+20))
+                cLine = Line(Point(100,window.getHeight()/2-20), Point(window.getWidth()/2-180,window.getHeight()/2+90))
+                cLine.draw(window)
+            if location == '8':
+                aLine = Line(Point(window.getWidth()/4,window.getHeight()/4), Point(window.getWidth()*3/4,window.getHeight()*3/4))
+                aLine.draw(window)
+                bLine = Line(Point(window.getWidth()/4+150,window.getHeight()/4), Point(window.getWidth()/4-30,window.getHeight()/4))
+                bLine.draw(window)
+                cLine = Line(Point(window.getWidth()/4,window.getHeight()/4+150), Point(window.getWidth()/4,window.getHeight()/4-30))
                 cLine.draw(window)
             
             
@@ -64,9 +92,9 @@ def undrawAll(aLine,bLine,cLine):
     cLine.undraw()
 
 def setWidth(aLine,bLine,cLine):
-    aLine.setWidth(6)
-    bLine.setWidth(6)
-    cLine.setWidth(6)
+    aLine.setWidth(60)
+    bLine.setWidth(60)
+    cLine.setWidth(60)
 
 
 

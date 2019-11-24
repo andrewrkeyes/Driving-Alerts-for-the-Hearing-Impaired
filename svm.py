@@ -9,8 +9,8 @@ import numpy as np
 import random
 import math
 
-def train(X_train, y_train, X_test, y_test):
-    #X_train, X_test, y_train, y_test = train_test_split(X_train, y_train, test_size=0.8)
+def train(X_train, y_train):#, X_test, y_test):
+    X_train, X_test, y_train, y_test = train_test_split(X_train, y_train, test_size=0.2)
 
     scaler = StandardScaler()
     scaler.fit(X_train)
@@ -65,12 +65,9 @@ def fp():
         X_train.append(window)
         y_train.append(1)
 
-
-    X_test = list()
-    y_test = list()
-    sensor_one = open("test_sensor_one0.txt").readlines()
-    sensor_two = open("test_sensor_two0.txt").readlines()
-    sensor_three = open("test_sensor_three0.txt").readlines()
+    sensor_one = open("sensor_one2.txt").readlines()
+    sensor_two = open("sensor_two2.txt").readlines()
+    sensor_three = open("sensor_three2.txt").readlines()
 
     for x in range(window_size, (len(sensor_one)-window_size)-10):
         window = np.zeros(window_size*3)
@@ -78,33 +75,23 @@ def fp():
             window[(y%window_size)] = float(sensor_one[y])
             window[(y%window_size)+window_size] = float(sensor_two[y])
             window[(y%window_size)+(2*window_size)] = float(sensor_three[y])
-        X_test.append(window)
-        y_test.append(0)
+        X_train.append(window)
+        y_train.append(0)
 
-    sensor_one = open("test_sensor_one1.txt").readlines()
-    sensor_two = open("test_sensor_two1.txt").readlines()
-    sensor_three = open("test_sensor_three1.txt").readlines()
 
-    for x in range(window_size, (len(sensor_one)-window_size)-10):
-        window = np.zeros(window_size*3)
-        for y in range(x, x+window_size):
-            window[(y%window_size)] = float(sensor_one[y])
-            window[(y%window_size)+window_size] = float(sensor_two[y])
-            window[(y%window_size)+(2*window_size)] = float(sensor_three[y])
-        X_test.append(window)
-        y_test.append(1)
 
-    print(train(X_train, y_train, X_test, y_test))
+
+    print(train(X_train, y_train))#, X_test, y_test))
 
 
 
 
 
 def main():
-    for trial in range(0,2):
-        s0 = open("test_sensor_one"+str(trial)+".txt", "a")
-        s1 = open("test_sensor_two"+str(trial)+".txt", "a")
-        s2 = open("test_sensor_three"+str(trial)+".txt", "a")
+    for trial in range(0,3):
+        s0 = open("sensor_one"+str(trial)+".txt", "a")
+        s1 = open("sensor_two"+str(trial)+".txt", "a")
+        s2 = open("sensor_three"+str(trial)+".txt", "a")
         for x in range(0, 30):
             file_name =  str(trial) + "/" + str(trial) + "_" + str(x) + ".txt"
             f = open(file_name)

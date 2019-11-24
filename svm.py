@@ -34,7 +34,7 @@ def file_lines(f):
 
     return count
 
-def main():
+def fp():
     window_size = 300
 
 
@@ -51,11 +51,29 @@ def main():
             window[1, y] = int(sensor_two[y])
             window[2, y] = int(sensor_three[y])
         X_train.append(window)
-    
 
 
 
 
+def main():
+    f = open("output.txt")
+    s0 = open("sens0", "a")
+    s1 = open("sens1", "a")
+    s2 = open("sens2", "a")
+
+    for line in f:
+        if line.strip() != "":
+            info = line.split(":")
+            sensor = info[0]
+            time = info[1]
+            noise = info[2]
+
+            if sensor == "0":
+                s0.write(str(noise))
+            if sensor == "1":
+                s1.write(str(noise))
+            if sensor == "2":
+                s2.write(str(noise))
 
 
 main()

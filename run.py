@@ -1,9 +1,10 @@
 import serial
+import matplotlib
 import time
 import sys
 import pickle
 
-def main(fileName):
+def main():
     window_size = 20
 
     loaded_svm = pickle.load(open('svm_model.sav', 'rb'))
@@ -31,6 +32,8 @@ def main(fileName):
         counter += 1
 
     
-    x = svm.predict(window)
-    print(x)
-        
+    x = loaded_svm.predict(window)
+    newFile = open("Mayasinput.txt", 'w')
+    newFile.write(x)
+    
+main()

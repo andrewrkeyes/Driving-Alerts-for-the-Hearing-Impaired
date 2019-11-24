@@ -8,6 +8,7 @@ from sklearn.decomposition import PCA
 import numpy as np
 import random
 import math
+import pickle
 
 def train(X_train, y_train):#, X_test, y_test):
     X_train, X_test, y_train, y_test = train_test_split(X_train, y_train, test_size=0.2)
@@ -24,6 +25,8 @@ def train(X_train, y_train):#, X_test, y_test):
     X_test = pca.transform(X_test)
     svclassifier = SVC(kernel='linear')
     svclassifier.fit(X_train, y_train)
+    filename = 'svm_model.sav'
+    pickle.dump(svclassifier, open(filename, 'wb'))
 
     return svclassifier.score(X_test, y_test)
 

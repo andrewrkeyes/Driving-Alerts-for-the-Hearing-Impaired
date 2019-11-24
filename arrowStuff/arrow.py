@@ -4,8 +4,19 @@ from graphics import *
 window = GraphWin("Arrow", 800, 550)
 
 def main():
+    value = 0;
     entry1 = Entry(Point(300, 50),20)
     entry1.draw(window)
+    if value==1:
+        label = Text(Point(window.getWidth()/2-5,20),"Honk")
+        label.setSize(30)
+        label.draw(window)
+    if value==0:
+        label = Text(Point(window.getWidth()/2-5,20),"Siren")
+        label.setTextColor('red')
+        label.setSize(30)
+        label.draw(window)
+    
 
     aLine = Line(Point(window.getWidth()/2,window.getHeight()/2+50), Point(window.getWidth()/2,window.getHeight()/2-50))
     aLine.draw(window)

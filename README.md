@@ -4,7 +4,7 @@ People with hearing impairment are safe and capable drivers, although there rema
 # What it does
 Three microphones are set up around a vehicle so that it samples sound from the environment in 360 degrees. If our machine-learning SVM algorithm detects an ambulance or honking car in the nearby area, it localizes the object based on the difference in amplitude of sound detected by each microphone and the time of delay between each microphone.
 
-# How we built
+# How we built it
 We connected three microphones to an Arduino Uno for sound detection. The amplitude of sound and the time of sound detection was read from the Arduino and channeled into a raspberry-pi for further processing. In Python, we used supervised learning with a support vector machine to detect whether a nearby sound was the siren of an ambulance or the persistent honk of a nearby car. Taking into account which microphone was persistently detecting the loudest sound, and the position of the microphone in relation to the driver, a dynamic GUI displays an arrow that tracks the position of the incoming vehicle to alert the driver.
 
 # Difficulties encountered
